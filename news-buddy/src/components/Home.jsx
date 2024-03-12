@@ -1,6 +1,11 @@
+import Loading from "./Loading"
+
 function Home() {
     return(
-        <h2>welcome to the homepage</h2>
+        <section>
+            <h2>welcome to the homepage</h2>
+        </section>
+        
     )
 }
 
