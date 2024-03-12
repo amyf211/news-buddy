@@ -11,6 +11,7 @@ function CommentsList({ article_id }) {
         .then((response) => response.json())
         .then((data) => {
             setCommentsList(data)
+            setIsLoading(false)
         })
     })
 
