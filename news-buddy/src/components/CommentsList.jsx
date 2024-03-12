@@ -1,14 +1,16 @@
 import { useState, useEffect } from "react"
 import CommentCard from "./CommentCard"
 import Loading from "./Loading"
+import { getComments } from "../api"
 
 function CommentsList({ article_id }) {
     const [commentsList, setCommentsList] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
-        fetch(`https://newsbuddy-f5h1.onrender.com/api/articles/${article_id}/comments`)
-        .then((response) => response.json())
+        getComments(article_id)
+        .then((response) => {
+            return response.json()})
         .then((data) => {
             setCommentsList(data)
             setIsLoading(false)

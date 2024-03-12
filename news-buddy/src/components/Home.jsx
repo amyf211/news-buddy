@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react"
 import Loading from "./Loading"
-import getArticleById from "../api"
+import { getArticleById } from "../api"
 import { Link } from "react-router-dom"
 
 function Home() {

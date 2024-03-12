@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react"
 import ArticleCard from "./ArticleCard"
 import Loading from "./Loading"
+import { getArticles } from "../api"
 
 function ArticlesList() {
     const [articlesList, setArticlesList] = useState([])
@@ -10,7 +11,7 @@ function ArticlesList() {
 
     useEffect(() => {
         setIsLoading(true)
-        fetch('https://newsbuddy-f5h1.onrender.com/api/articles')
+        getArticles()
         .then((response) => response.json())
         .then((data) => {
             setArticlesList(data),

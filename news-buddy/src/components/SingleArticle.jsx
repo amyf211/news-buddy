@@ -1,5 +1,5 @@
 import { useParams } from "react-router"
-import getArticleById from "../api"
+import { getArticleById } from "../api"
 import { useState, useEffect } from "react"
 import Loading from "./Loading"
 import CommentsList from "./CommentsList"
