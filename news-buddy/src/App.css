@@ -6,3 +6,7 @@ body{
 img{
     max-width: 100%;
 }
+
+.links{
+    padding: 10px;
+}
