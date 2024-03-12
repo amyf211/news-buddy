@@ -7,8 +7,8 @@ import CommentsList from "./CommentsList"
 function SingleArticle() {
     const {article_id} = useParams()
     const [isLoading, setIsLoading] = useState(true)
-
     const [article, setArticle] = useState({})
+    const [newVotes, setNewVotes] = useState(article.votes)
 
     useEffect(() => {
         setIsLoading(true)
@@ -29,7 +29,11 @@ function SingleArticle() {
             <p>Posted: {String(article.created_at).slice(0,10)}</p>
             <img id="single-article-img" src={article.article_img_url} />
             <p>{article.body}</p>
-            <h3 id="article-likes">Likes: {article.votes}</h3>
+            <div id="article-likes">
+                <h3>Likes: {newVotes}</h3>
+                <button className="like-buttons"> Like ❤️ </button>
+                <button className="like-buttons"> Dislike 💔 </button>
+            </div>
             <CommentsList article_id={article_id}/>
         </section>
     )
