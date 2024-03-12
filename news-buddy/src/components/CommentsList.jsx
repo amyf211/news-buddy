@@ -4,6 +4,7 @@ import Loading from "./Loading"
 
 function CommentsList({ article_id }) {
     const [commentsList, setCommentsList] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         fetch(`https://newsbuddy-f5h1.onrender.com/api/articles/${article_id}/comments`)
@@ -12,6 +13,10 @@ function CommentsList({ article_id }) {
             setCommentsList(data)
         })
     })
+
+    if (isLoading) {
+        return <Loading/>
+    }
 
 return(
     <section id="comments-list">

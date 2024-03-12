@@ -6,6 +6,8 @@ function ArticlesList() {
     const [articlesList, setArticlesList] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
+    
+
     useEffect(() => {
         setIsLoading(true)
         fetch('https://newsbuddy-f5h1.onrender.com/api/articles')
