@@ -10,15 +10,14 @@ import SingleArticle from './components/SingleArticle'
 
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true)
 
   return (
     <>
       <Header />
       <Routes>
         <Route path='/' element={<Home/>} />
-        <Route path='/articles' element={<ArticlesList isLoading={isLoading} setIsLoading={setIsLoading}/> } />
-        <Route path='/articles/:article_id' element={<SingleArticle isLoading={isLoading} setIsLoading={setIsLoading}/>} />
+        <Route path='/articles' element={<ArticlesList /> } />
+        <Route path='/articles/:article_id' element={<SingleArticle />} />
       </Routes>
     </>
   )
