@@ -7,9 +7,23 @@ img{
     max-width: 100%;
 }
 
-.links{
+nav{
+    margin: 0;
     padding: 10px;
+    overflow: hidden;
+    background-color: #FFF870;
 }
+
+.links {
+    display: inline;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+  }
+  
+.links:hover {
+    background-color: gold; 
+  }
 
 .comment-card, #comments-list, #article-likes{
     margin: 1rem;
