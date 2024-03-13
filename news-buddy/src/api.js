@@ -1,16 +1,19 @@
+import axios from "axios"
+
+const newsApi = axios.create({
+    baseURL: 'https://newsbuddy-f5h1.onrender.com/api'
+})
+
 export function getArticleById(article_id) {
-    return fetch(`https://newsbuddy-f5h1.onrender.com/api/articles/${article_id}`)
+    return newsApi.get(`/articles/${article_id}`)
     .then((response) => {
-        return response.json()
-    }).then((data) => {
-        return data
+        return response.data
     })
 }
 
 export function getArticles(){
-    return fetch('https://newsbuddy-f5h1.onrender.com/api/articles')
+    return newsApi.get('/articles')
 }
 
 export function getComments(article_id){
-    return fetch(`https://newsbuddy-f5h1.onrender.com/api/articles/${article_id}/comments`)
-}
+    return newsApi.get(`/articles/${article_id}/comments`)}
