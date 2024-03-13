@@ -8,14 +8,13 @@ function CommentsList({ article_id }) {
     const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
+        setIsLoading(true)
         getComments(article_id)
         .then((response) => {
-            return response.json()})
-        .then((data) => {
-            setCommentsList(data)
+            setCommentsList(response.data)
             setIsLoading(false)
         })
-    })
+    }, [])
 
     if (isLoading) {
         return <Loading/>
