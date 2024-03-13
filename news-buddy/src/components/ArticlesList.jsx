@@ -12,9 +12,8 @@ function ArticlesList() {
     useEffect(() => {
         setIsLoading(true)
         getArticles()
-        .then((response) => response.json())
-        .then((data) => {
-            setArticlesList(data),
+        .then((response) => {
+            setArticlesList(response.data),
             setIsLoading(false)
         })
     }, [])
