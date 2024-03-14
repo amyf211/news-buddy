@@ -3,7 +3,7 @@ import ArticleCard from "./ArticleCard"
 import Loading from "./Loading"
 import { getArticles } from "../api"
 
-function ArticlesList() {
+function ArticlesList({ chosenTopic, setChosenTopic }) {
     const [articlesList, setArticlesList] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
