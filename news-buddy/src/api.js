@@ -22,4 +22,4 @@ export function updateVotes(article_id, body){
     return newsApi.patch(`/articles/${article_id}`, body).then((data) => {
         return data
     })
-}
+} 
