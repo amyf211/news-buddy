@@ -23,3 +23,4 @@ export function updateVotes(article_id, body){
         return data
     })
 } 
+ 
