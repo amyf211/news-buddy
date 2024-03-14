@@ -3,18 +3,42 @@ import { getArticleById } from "../api"
 import { useState, useEffect } from "react"
 import Loading from "./Loading"
 import CommentsList from "./CommentsList"
+import { updateVotes } from "../api"
 
 function SingleArticle() {
     const {article_id} = useParams()
     const [isLoading, setIsLoading] = useState(true)
     const [article, setArticle] = useState({})
-    const [newVotes, setNewVotes] = useState(article.votes)
+    const [votes, setVotes] = useState(0)
+
+    function handleLike(){
+        if(votes === 0){
+            setVotes((currVotes) => currVotes + 1)
+            updateVotes(article_id, {inc_votes: 1})
+            .catch((error) => {
+                setVotes((currVotes) => currVotes - 1)
+            })
+        } 
+    }
+
+    function handleDislike(){
+        if (votes === 1){
+            setVotes((currVotes) => currVotes - 1)
+            updateVotes(article_id, {inc_votes: -1})
+            .catch((error) => {
+                setVotes((currVotes) => currVotes + 1)
+            })
+        }
+    }
 
     useEffect(() => {
         setIsLoading(true)
-        getArticleById(article_id).then((article) =>
-        setArticle(article),
-        setIsLoading(false))
+        getArticleById(article_id).then((article) => {
+            setArticle(article)
+            setVotes(article.votes)
+            setIsLoading(false)
+        })
+      
     }, [article_id])
 
     if(isLoading) {
@@ -30,9 +54,9 @@ function SingleArticle() {
             <img id="single-article-img" src={article.article_img_url} />
             <p>{article.body}</p>
             <div id="article-likes">
-                <h3>Likes: {newVotes}</h3>
-                <button className="like-buttons"> Like ❤️ </button>
-                <button className="like-buttons"> Dislike 💔 </button>
+                <h3>Likes: {votes}</h3>
+                <button className="like-buttons" onClick={() => handleLike()}> Like ❤️ </button>
+                <button className="like-buttons" onClick={handleDislike}> Dislike 💔 </button>
             </div>
             <CommentsList article_id={article_id}/>
         </section>

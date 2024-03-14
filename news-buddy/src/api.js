@@ -17,3 +17,10 @@ export function getArticles(){
 
 export function getComments(article_id){
     return newsApi.get(`/articles/${article_id}/comments`)}
+
+export function updateVotes(article_id, body){
+    return newsApi.patch(`/articles/${article_id}`, body).then((data) => {
+        console.log(data, 'data')
+        return data
+    })
+}
