@@ -23,4 +23,14 @@ export function updateVotes(article_id, body){
         return data
     })
 } 
+
+export function postComment(article_id, body){
+    console.log(article_id)
+    console.log(body)
+    return newsApi.post(`/articles/${article_id}/comments`, body).then((data) => {
+        return data
+    }).catch((err) => {
+        console.log(err)
+    })
+}
  

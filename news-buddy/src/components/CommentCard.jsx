@@ -1,5 +1,6 @@
-function CommentCard(props) {
-    const { comment } = props
+function CommentCard({ comment }) {
+    // const comment = props.comment
+    console.log(comment, 'comment in commentCard')
 
     return (
         <section className="comment-card">
@@ -7,8 +8,8 @@ function CommentCard(props) {
           <p>Posted: {String(comment.created_at).slice(0,10)}</p>
           <p>{comment.body}</p>
           <h4>Likes: {comment.votes}</h4>
-          <button className="like-buttons"> Like ❤️ </button>
-          <button className="like-buttons"> Dislike 💔 </button>
+          <button className="buttons-style"> Like ❤️ </button>
+          <button className="buttons-style"> Dislike 💔 </button>
         </section>
     )
 }

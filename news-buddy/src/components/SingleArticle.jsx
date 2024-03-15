@@ -55,8 +55,8 @@ function SingleArticle() {
             <p>{article.body}</p>
             <div id="article-likes">
                 <h3>Likes: {votes}</h3>
-                <button className="like-buttons" onClick={() => handleLike()}> Like ❤️ </button>
-                <button className="like-buttons" onClick={handleDislike}> Dislike 💔 </button>
+                <button className="buttons-style" onClick={() => handleLike()}> Like ❤️ </button>
+                <button className="buttons-style" onClick={handleDislike}> Dislike 💔 </button>
             </div>
             <CommentsList article_id={article_id}/>
         </section>
