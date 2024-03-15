@@ -7,11 +7,15 @@ img{
     max-width: 100%;
 }
 
-nav{
+#logged-in-user, nav{
     margin: 0;
     padding: 10px;
     overflow: hidden;
     background-color: #FFF870;
+}
+
+#logged-in-user{
+    float: right;
 }
 
 .links {
@@ -25,7 +29,7 @@ nav{
     background-color: gold; 
   }
 
-.comment-card, .topic-card, #comments-list, #article-likes{
+form, .comment-card, .topic-card, #comments-list, #article-likes{
     margin: 1rem;
     padding: 15px;
     border: 1px solid #888888 ;
@@ -34,4 +38,28 @@ nav{
 
 .comment-card, .topic-card{
     box-shadow: 10px 10px 8px #888888;
+}
+
+.buttons-style{
+    padding: 10px;
+    margin: 10px;
+    background-color: #FFF870;
+    border: 1px solid #888888;
+    border-radius: 25px;
+}
+
+.buttons-style:hover{
+    background-color: gold;
+}
+
+input[type=text] {
+    display: flex;
+    margin: 10px;
+    width: 80%;
+    border: 1px solid #888888;
+    border-radius: 15px;
+}
+
+#comment-body{
+    padding: 20px;
 }
