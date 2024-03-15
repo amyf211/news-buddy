@@ -29,14 +29,14 @@ img{
     background-color: gold; 
   }
 
-form, .comment-card, #comments-list, #article-likes{
+form, .comment-card, .topic-card, #comments-list, #article-likes{
     margin: 1rem;
     padding: 15px;
     border: 1px solid #888888 ;
     border-radius: 25px;
 }
 
-.comment-card{
+.comment-card, .topic-card{
     box-shadow: 10px 10px 8px #888888;
 }
 

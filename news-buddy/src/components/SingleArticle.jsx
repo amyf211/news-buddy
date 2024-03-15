@@ -3,6 +3,7 @@ import { getArticleById } from "../api"
 import { useState, useEffect } from "react"
 import Loading from "./Loading"
 import CommentsList from "./CommentsList"
+import { Link } from "react-router-dom"
 import { updateVotes } from "../api"
 
 function SingleArticle() {
@@ -10,6 +11,8 @@ function SingleArticle() {
     const [isLoading, setIsLoading] = useState(true)
     const [article, setArticle] = useState({})
     const [votes, setVotes] = useState(0)
+
+    console.log(article_id)
 
     function handleLike(){
         if(votes === 0){
@@ -47,7 +50,7 @@ function SingleArticle() {
 
     return(
         <section id="single-article">
-            <p>{article.topic}</p>
+            <Link to={`/articles?topic=${article.topic}`}><p>{article.topic}</p></Link>
             <h1>{article.title}</h1>
             <h3>By: {article.author}</h3>
             <p>Posted: {String(article.created_at).slice(0,10)}</p>
