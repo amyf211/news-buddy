@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import CommentCard from "./CommentCard"
 import Loading from "./Loading"
 import { getComments } from "../api"
+import CommentForm from "./CommentForm"
 
 function CommentsList({ article_id }) {
     const [commentsList, setCommentsList] = useState([])
@@ -23,9 +24,10 @@ function CommentsList({ article_id }) {
 return(
     <section id="comments-list">
         <h3>Comments:</h3>
+        <CommentForm article_id={article_id} commentsList={commentsList} setCommentsList={setCommentsList}/>
         <ul>
-            {commentsList.map((comment) => {
-                return <CommentCard key={comment.comment_id} comment={ comment }/>
+            {commentsList.map((comment, index) => {
+                return <CommentCard key={index} comment={ comment }/>
             })}
         </ul>
     </section>
