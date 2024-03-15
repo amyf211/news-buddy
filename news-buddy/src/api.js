@@ -25,10 +25,19 @@ export function updateVotes(article_id, body){
 } 
 
 export function postComment(article_id, body){
-    console.log(article_id)
-    console.log(body)
     return newsApi.post(`/articles/${article_id}/comments`, body).then((data) => {
         return data
+    }).catch((err) => {
+        console.log(err)
+    })
+}
+
+export function deleteComment(comment_id){
+    console.log('in the api function')
+    return newsApi.delete(`/comments/${comment_id}`).then((response) => {
+        console.log(response, 'response in api')
+        console.log('post deleted')
+        return response
     }).catch((err) => {
         console.log(err)
     })
