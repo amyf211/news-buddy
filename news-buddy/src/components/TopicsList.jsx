@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react"
 import TopicCard from "./TopicCard"
 import Loading from "./Loading"
@@ -7,7 +8,6 @@ function TopicsList() {
     const [topicsList, setTopicsList] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     
-
     useEffect(() => {
         setIsLoading(true)
         getTopics()
