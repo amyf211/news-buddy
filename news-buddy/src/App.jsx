@@ -8,6 +8,7 @@ import ArticlesList from "./components/ArticlesList"
 import SingleArticle from './components/SingleArticle'
 import TopicsList from './components/TopicsList'
 import UserContext from './contexts/UserContext'
+import SingleTopic from './components/singleTopic'
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({username: "grumpy19"})
@@ -20,6 +21,7 @@ function App() {
         <Route path='/articles' element={<ArticlesList /> } />
         <Route path='/articles/:article_id' element={<SingleArticle />} />
         <Route path='/topics' element={<TopicsList /> } />
+        <Route path='/articles?topic=:topic' element={<SingleTopic />} />
       </Routes>
     </UserContext.Provider>
   )

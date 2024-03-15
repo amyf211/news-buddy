@@ -2,16 +2,19 @@ import { useState, useEffect } from "react"
 import ArticleCard from "./ArticleCard"
 import Loading from "./Loading"
 import { getArticles } from "../api"
+import { useSearchParams } from "react-router-dom"
 
-function ArticlesList({ chosenTopic, setChosenTopic }) {
+function ArticlesList() {
     const [articlesList, setArticlesList] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
-    
+    const [searchParams] = useSearchParams()
+    const topic = searchParams.get('topic')
+
 
     useEffect(() => {
         setIsLoading(true)
-        getArticles()
+        getArticles(topic)
         .then((response) => {
             setArticlesList(response.data),
             setIsLoading(false)
@@ -26,8 +29,8 @@ return(
     <section id="articles-list">
         <h1>Articles:</h1>
         <ul>
-            {articlesList.map((article) => {
-                return <ArticleCard key={article.article_id} article={ article }/>
+            {articlesList.map((article, index) => {
+                return <ArticleCard key={index} article={ article }/>
             })}
         </ul>
     </section>
