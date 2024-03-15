@@ -12,26 +12,21 @@ function SingleArticle() {
     const [article, setArticle] = useState({})
     const [votes, setVotes] = useState(0)
 
-    console.log(article_id)
 
     function handleLike(){
-        if(votes === 0){
             setVotes((currVotes) => currVotes + 1)
             updateVotes(article_id, {inc_votes: 1})
             .catch((error) => {
                 setVotes((currVotes) => currVotes - 1)
             })
-        } 
     }
 
     function handleDislike(){
-        if (votes === 1){
             setVotes((currVotes) => currVotes - 1)
             updateVotes(article_id, {inc_votes: -1})
             .catch((error) => {
                 setVotes((currVotes) => currVotes + 1)
             })
-        }
     }
 
     useEffect(() => {
