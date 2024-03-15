@@ -3,7 +3,7 @@ import { postComment } from "../api"
 import UserContext from "../contexts/UserContext"
 import { useContext } from "react"
 
-function CommentForm({ article_id, commentsList, setCommentsList }) {
+function CommentForm({ article_id, setCommentsList }) {
     const { loggedInUser } = useContext(UserContext)
     const[formBody, setFormBody] = useState("")
     const [isLoading, setIsLoading] = useState(false)
@@ -16,7 +16,6 @@ function CommentForm({ article_id, commentsList, setCommentsList }) {
             setIsLoading(true)
 
             postComment(article_id, newComment).then((response) => {
-                console.log(response.data.newComment, 'data')
                 setCommentsList((currComments) => {
                     return [response.data.newComment, ...currComments]})
                     setFormBody("")

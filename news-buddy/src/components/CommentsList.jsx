@@ -24,10 +24,10 @@ function CommentsList({ article_id }) {
 return(
     <section id="comments-list">
         <h3>Comments:</h3>
-        <CommentForm article_id={article_id} commentsList={commentsList} setCommentsList={setCommentsList}/>
+        <CommentForm article_id={article_id} setCommentsList={setCommentsList}/>
         <ul>
             {commentsList.map((comment, index) => {
-                return <CommentCard key={index} comment={ comment }/>
+                return <CommentCard key={index} comment={comment} commentsList={commentsList} setCommentsList={setCommentsList}/>
             })}
         </ul>
     </section>
