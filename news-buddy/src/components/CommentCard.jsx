@@ -1,6 +1,8 @@
+import UserContext from "../contexts/UserContext"
+import { useContext } from "react"
+
 function CommentCard({ comment }) {
-    // const comment = props.comment
-    console.log(comment, 'comment in commentCard')
+  const { loggedInUser } = useContext(UserContext)
 
     return (
         <section className="comment-card">
